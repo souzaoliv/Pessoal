@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Título Padrão{% endblock %}</title>
+    <meta name="description" content="{% block description %}Descrição Padrão{% endblock %}">
+    <!-- Outras meta tags de SEO aqui -->
+    {% block extra_meta_tags %}{% endblock %}
+</head>
+<body>
+
+<header>
+    <!-- Seu cabeçalho aqui -->
+    {% block header %}  {% endblock header %}
+</header>
+
+<main>
+    {% block content %}
+    <!-- Conteúdo da página vai aqui -->
+    {% endblock content %}
+</main>
+
+<footer>
+    <!-- Seu rodapé aqui -->
+    {% block footer %}{% endblock footer %}
+</footer>
+
+<!-- Scripts JavaScript aqui -->
+
+{% block extra_scripts %}{% endblock %}
+
+</body>
+</html>
