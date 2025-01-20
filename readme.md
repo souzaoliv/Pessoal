@@ -6,11 +6,11 @@
 - Bootstrap 5.3.3
 
 ## Estrutura do Projeto
-project/: Diretório que contém as configurações do projeto Django.
-app/: App portifolio
-blacklist/: App gerencia IP's maliciosos.
-templates/: Diretório que contém os templates HTML.
-static/: Diretório que contém os arquivos estáticos (CSS, JS, imagens).
+project/: Diretório que contém as configurações do projeto Django. <br>
+app/: App portifolio. <br>
+blacklist/: App gerencia IP's maliciosos. <br>
+templates/: Diretório que contém os templates HTML. <br>
+static/: Diretório que contém os arquivos estáticos (CSS, JS, imagens). <br>
 
 
 ## Blacklist de IPs
