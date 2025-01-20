@@ -1,13 +1,19 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blacklist</title>
-</head>
-<body>
-    <h1>
-        Blacklist html
-    </h1>
-    
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block titulo %}Blacklist{% endblock titulo %}
+
+{% block conteudo %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <img src="https://random-image-pepebigotes.vercel.app/api/random-image" class="img-fluid mb-4" alt="Imagem de boas-vindas">
+            <h1 class="mb-4">Bem-vindo à Blacklist</h1>
+            <p class="lead mb-4">Gerencie suas listas de forma eficiente e segura.</p>
+            <p>
+                <a href="{% url 'blacklist:login' %}" class="btn btn-primary btn-lg mx-2">Login</a>
+                <a href="{% url 'blacklist:register' %}" class="btn btn-secondary btn-lg mx-2">Registrar</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock conteudo %}
