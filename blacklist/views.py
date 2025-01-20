@@ -34,3 +34,8 @@ class LoginView(View):
             login(request, user)
             return HttpResponse('logado')
         return render(request, 'blacklist/login.html', {'form': form})
+    
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('index')
