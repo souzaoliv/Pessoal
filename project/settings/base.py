@@ -63,6 +63,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),  # Pasta de templates na raiz do projeto
             os.path.join(BASE_DIR, 'app/templates'),
+            os.path.join(BASE_DIR, 'blacklist/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -128,6 +129,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app/static'),
+    os.path.join(BASE_DIR, 'blacklist/static'),
 ]
 
 # Default primary key field type
