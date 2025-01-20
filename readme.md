@@ -1,10 +1,17 @@
 # Portifolio Backend Python
-
 ## Tecnologias Utilizadas
 
 - Python 3.13
 - Django 5.1.5
 - Bootstrap 5.3.3
+
+## Estrutura do Projeto
+project/: Diretório que contém as configurações do projeto Django.
+app/: App portifolio
+blacklist/: App gerencia IP's maliciosos.
+templates/: Diretório que contém os templates HTML.
+static/: Diretório que contém os arquivos estáticos (CSS, JS, imagens).
+
 
 ## Blacklist de IPs
 
@@ -18,3 +25,8 @@ Este é um projeto Django que implementa um sistema de gerenciamento de blacklis
 - Adição de IPs à blacklist
 - Remoção de IPs da blacklist
 - Exibição de IPs bloqueados
+
+## Link do Portfólio
+
+Acesse o portfólio completo em: [lucasgso.com.br](http://lucasgso.com.br)
+
