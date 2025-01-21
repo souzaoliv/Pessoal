@@ -4,6 +4,8 @@
 - Python 3.13
 - Django 5.1.5
 - Bootstrap 5.3.3
+- Docker 27.5.0
+- docker-compose 1.29.2
 
 ## Estrutura do Projeto
 project/: Diretório que contém as configurações do projeto Django. <br>
