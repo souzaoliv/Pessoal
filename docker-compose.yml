@@ -2,15 +2,12 @@ version: '3.8'
 
 services:
   app:
-    build: 
-      context: .  
+    build:
+      context: .
     ports:
       - "8000:8000"
     volumes:
-      - app-bd:/app
-    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+      - .:/app  # Volume mapeado corretamente
+    command: gunicorn --bind 0.0.0.0:8000 project.wsgi:application  # Corrigido para o caminho correto
     env_file:
-      - ./.env
-
-volumes:
-  app-bd:
+      - .env  # Lê o arquivo .env com as variáveis de ambiente
