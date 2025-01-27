@@ -7,7 +7,25 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/app  # Volume mapeado corretamente
-    command: gunicorn --bind 0.0.0.0:8000 project.wsgi:application  # Corrigido para o caminho correto
+      - .:/app  # Mapeando volume para o código Django
     env_file:
-      - .env  # Lê o arquivo .env com as variáveis de ambiente
+      - .env
+    networks:
+      - nginx-network
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf  # Configuração do Nginx
+      - ./nginx/ssl:/etc/letsencrypt  # Volume para os certificados SSL
+    depends_on:
+      - app
+    networks:
+      - nginx-network
+
+networks:
+  nginx-network:
+    driver: bridge

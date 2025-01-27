@@ -1,4 +1,4 @@
-FROM python:3.13.1-slim-bullseye
+FROM python:3.10.13-slim-bullseye
 
 # Definindo o diretório de trabalho dentro do contêiner
 WORKDIR /app
@@ -13,4 +13,4 @@ RUN pip3 install --no-cache-dir -r requirements/prod.txt
 EXPOSE 8000
 
 # Comando para rodar o Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "project.wsgi:application"]
+CMD ["gunicorn", "project.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3", "--timeout", "120"]
