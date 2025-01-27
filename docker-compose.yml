@@ -19,8 +19,9 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf  # Configuração do Nginx
-      - ./nginx/ssl:/etc/letsencrypt  # Volume para os certificados SSL
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Corrigido para carregar a configuração correta do Nginx
+      - ./certs/fullchain.pem:/etc/ssl/certs/fullchain.pem:ro  # Certificado
+      - ./certs/privkey.pem:/etc/ssl/private/privkey.pem:ro  # Chave privada
     depends_on:
       - app
     networks:
