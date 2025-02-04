@@ -3,21 +3,84 @@
 {% block titulo %}Brute Force - Plataforma{% endblock titulo %}
 
 {% block conteudo %}
-<div class="row mb-4">
-    <div class="col-md-12 d-flex justify-content-between align-items-center">
-        <h1>Bem-vindo, {{ user.username }}!</h1>
-        <form method="post" action="{% url 'authenticate:logout' %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Logout</button>
-        </form>
+<div class="container mt-4">
+    <!-- Barra de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Brute Force Plataforma</a>
+            <div class="ms-auto">
+                <span class="text-light me-3">Bem-vindo, <strong>{{ user.username }}</strong>!</span>
+                <form method="post" action="{% url 'authenticate:logout' %}" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Introdução -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-body text-center">
+                    <h2 class="mb-3">Bem-vindo à Plataforma</h2>
+                    <p class="text-muted">Envie um arquivo de texto contendo senhas para tentar a autenticação em usuários.</p>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
-            <h1 class="mb-4">Bem-vindo à Brute Force Plataforma</h1>
-            <p class="lead mb-4">Envie um arquivo de texto com suas senhas para forçar em todos os usuarios.</p>
+
+    <!-- Exibição de mensagens -->
+    {% if messages %}
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-8">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Upload de Arquivo -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h4 class="mb-3">Upload de Arquivo</h4>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="{{ form.file.id_for_label }}" class="form-label">{{ form.file.label }}</label>
+                            <div class="input-group">
+                                {{ form.file }}
+                            </div>
+                            {% if form.file.errors %}
+                                <div class="text-danger small mt-2">
+                                    {% for error in form.file.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                    </form>
+                </div>
+                
+                {% if uploaded_file %}
+                <div class="card-footer text-center">
+                    <form method="post" action="{% url 'bruteforce:testar_senhas' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-info">Quebrar Senhas</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>
+
 {% endblock conteudo %}
