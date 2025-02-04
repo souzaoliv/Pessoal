@@ -2,7 +2,7 @@ from django import forms
 from .models import UploadedFile
 
 class UploadFileForm(forms.ModelForm):
-    MAX_FILE_SIZE = 0.01 * 1024 * 1024  # 
+    MAX_FILE_SIZE = 0.005 * 1024 * 1024  # 
 
     class Meta:
         model = UploadedFile
