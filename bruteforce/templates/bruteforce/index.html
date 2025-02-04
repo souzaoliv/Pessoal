@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block titulo %}Brute Force{% endblock titulo %}
+
+{% block conteudo %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <img src="https://random-image-pepebigotes.vercel.app/api/random-image" class="img-fluid mb-4" alt="Imagem de boas-vindas">
+            <h1 class="mb-4">Bem-vindo à Brute Force</h1>
+            <p class="lead mb-4">Envie um arquivo de texto com suas senhas para forçar em todos os usuarios.</p>
+            <p>
+                <a href="{% url 'authenticate:login' %}?next=/bruteforce/plataforma/" class="btn btn-primary btn-lg mx-2">Login</a>
+                <a href="{% url 'authenticate:register' %}?next=/bruteforce/plataforma/" class="btn btn-secondary btn-lg mx-2">Registrar</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock conteudo %}

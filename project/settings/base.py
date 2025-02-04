@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'blacklist',
+    'bruteforce',
+    'authenticate',
 ]
 
 MIDDLEWARE = [

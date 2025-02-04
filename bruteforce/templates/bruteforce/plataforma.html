@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %}Brute Force - Plataforma{% endblock titulo %}
+
+{% block conteudo %}
+<div class="row mb-4">
+    <div class="col-md-12 d-flex justify-content-between align-items-center">
+        <h1>Bem-vindo, {{ user.username }}!</h1>
+        <form method="post" action="{% url 'authenticate:logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="mb-4">Bem-vindo à Brute Force Plataforma</h1>
+            <p class="lead mb-4">Envie um arquivo de texto com suas senhas para forçar em todos os usuarios.</p>
+        </div>
+    </div>
+</div>
+{% endblock conteudo %}

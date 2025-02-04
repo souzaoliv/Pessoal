@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
     path('blacklist/', include('blacklist.urls')),
+    path('authenticate/', include('authenticate.urls')),
+    path('bruteforce/', include('bruteforce.urls')),
 ]
